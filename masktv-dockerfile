@@ -21,15 +21,17 @@ RUN apt-get update && \
     apt-get install -y php7.4 php7.4-mysql php7.4-cli php7.4-common php7.4-json php7.4-zip php7.4-gd php7.4-mbstring && \
     apt-get install php7.4 libapache2-mod-php7.4
 
+# Set up Apache configuration
+RUN apt-get update && \
+    apt-get install apache2 -y
+COPY ./admin.conf /etc/apache2/sites-available/admin.conf 
+RUN ln -s /etc/apache2/sites-available/admin.conf etc/apache2/sites-enabled/admin.conf && \ 
+    rm /etc/apache2/sites-enabled/000-default.conf
+
 # Allow php user to write to /var/www/html
 RUN chown -R www-data:www-data /var/www/html && \
     chmod -R 755 /var/www/html
 
-# Set up Apache configuration
-COPY ./admin.conf /etc/apache2/sites-available/admin.conf  # name and data copy from vs 
-RUN ln -s /etc/apache2/sites-available/admin.conf etc/apache2/sites-enabled/admin.conf && \ 
-    rm /etc/apache2/sites-enabled/000-default.conf
-    
 # Enable apache2 write module
 RUN a2enmod rewrite
 
