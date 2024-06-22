@@ -8,13 +8,13 @@ RUN apt-get update && \
     mysql -e "FLUSH PRIVILEGES;" && \
     apt-get clean
 
-    # copy databasefile from ./ to database.
-        # copy database file to docker image
+# copy databasefile from ./ to database.
+    # copy database file to docker image
     
 COPY ./newdb.sql /tmp/newdb.sql   # name and copy file from vs
 
 # import database file from /tmp to database image
-RUN mysql -u u817406592_admin_masktv -p u817406592_admin_masktv -e "SET FOREIGN_KEY_CHECKS = 0; SOURCE /tmp/newdb.sql; SET FOREIGN_KEY_CHECKS = 1;"
+RUN mysql -u u817406592_admin_masktv -p'7HDL*m5dWi^' u817406592_admin_masktv -e "SET FOREIGN_KEY_CHECKS = 0; SOURCE /tmp/newdb.sql; SET FOREIGN_KEY_CHECKS = 1;"
 
 # install php 7.4 with plugins
 RUN apt-get update && \
