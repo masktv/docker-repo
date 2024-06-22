@@ -1,0 +1,44 @@
+FROM ubuntu:20.04
+RUN apt-get update && \
+    apt-get install -y mysql-server-8.0 mysql-client-8.0 && \
+    service mysql start && \
+    mysql -e "CREATE USER 'u817406592_admin_masktv'@'localhost' IDENTIFIED BY '7HDL*m5dWi^';" && \ 
+    mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'u817406592_admin_masktv'@'localhost' WITH GRANT OPTION;" && \
+    mysql -e "CREATE DATABASE u817406592_admin_masktv;" && \
+    mysql -e "FLUSH PRIVILEGES;" && \
+    apt-get clean
+
+# copy databasefile from ./ to database.
+    # copy database file to docker image
+    
+COPY /users/editing/Msktv-git/newdb.sql /tmp/newdb.sql   # name and copy file from vs
+
+# import database file from /tmp to database image
+RUN mysql -u u817406592_admin_masktv -p'7HDL*m5dWi^' u817406592_admin_masktv -e "SET FOREIGN_KEY_CHECKS = 0; SOURCE /tmp/newdb.sql; SET FOREIGN_KEY_CHECKS = 1;"
+
+# install php 7.4 with plugins
+RUN apt-get update && \
+    apt-get install -y php7.4 php7.4-mysql php7.4-cli php7.4-common php7.4-json php7.4-zip php7.4-gd php7.4-mbstring && \
+    apt-get install php7.4 libapache2-mod-php7.4
+
+# Set up Apache configuration
+RUN apt-get update && \
+    apt-get install apache2 -y
+COPY ./admin.conf /etc/apache2/sites-available/admin.conf  # name and data copy from vs 
+RUN ln -s /etc/apache2/sites-available/admin.conf etc/apache2/sites-enabled/admin.conf && \ 
+    rm /etc/apache2/sites-enabled/000-default.conf
+
+# Allow php user to write to /var/www/html    
+RUN chown -R www-data:www-data /var/www/html && \
+    chmod -R 755 /var/www/html
+    
+# Enable apache2 write module
+RUN a2enmod rewrite
+
+EXPOSE 80
+
+# Start apache in foreground mode 
+CMD ["apachectl","-D","FOREGROUND"]
+
+# inser database file.
+# insert application file 
