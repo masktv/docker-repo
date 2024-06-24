@@ -1,4 +1,5 @@
 FROM ubuntu:20.04
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y mysql-server-8.0 mysql-client-8.0 && \
     service mysql start && \
