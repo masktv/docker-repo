@@ -28,8 +28,9 @@ RUN apt-get update && \
     apt-get install apache2 -y
 COPY ./public_html/* /var/www/html/
 COPY ./admin.conf /etc/apache2/sites-available/admin.conf 
-RUN ln -s /etc/apache2/sites-available/admin.conf /etc/apache2/sites-enabled/admin.conf && \ 
-    rm /etc/apache2/sites-enabled/000-default.conf
+RUN  a2dissite /etc/apache2/sites-available/000-default.conf && \
+     a2ensite /etc/apache2/sites-available/admin.conf.conf && \
+     systemctl reload apache2 
 
 # Allow php user to write to /var/www/html
 RUN chown -R www-data:www-data /var/www/html && \
