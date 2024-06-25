@@ -1,0 +1,7 @@
+apt-get install apache2
+service apache2 start
+service apache2 enable 
+
+apt-get install -y mysql-server mysql-client
+service mysql start
+service mysql enable
