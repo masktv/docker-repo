@@ -26,11 +26,12 @@ RUN echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu focal main" > /etc/apt/
 
 # Set up Apache configuration
 RUN apt-get update && \
-    apt-get install apache2 -y
+    apt-get install apache2 -y && \
+    apt-get start apache2 
 COPY ./public_html/* /var/www/html/
 COPY ./admin.conf /etc/apache2/sites-available/admin.conf 
 RUN  ln -s /etc/apache2/sites-available/admin.conf /etc/apache2/sites-enabled/admin.conf && \
-     rm /etc/apache2/sites-available/ 000-default.conf
+     rm /etc/apache2/sites-enabled/000-default.con
      systemctl reload apache2 
 
 # Allow php user to write to /var/www/html
