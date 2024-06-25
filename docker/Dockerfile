@@ -29,7 +29,8 @@ RUN apt-get update && \
     apt-get install apache2 -y
 COPY ./public_html/* /var/www/html/
 COPY ./admin.conf /etc/apache2/sites-available/admin.conf 
-RUN  ln -s /etc/apache2/sites-available/admin.conf /etc/apache2/sites-enabled/admin.conf
+RUN  ln -s /etc/apache2/sites-available/admin.conf /etc/apache2/sites-enabled/admin.conf && \
+     rm /etc/apache2/sites-available/ 000-default.conf
      systemctl reload apache2 
 
 # Allow php user to write to /var/www/html
