@@ -1,8 +1,9 @@
 FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
-    apt-get install -y mysql-server-8.0 mysql-client-8.0 && \
+    apt-get install -y mysql-server mysql-client && \
     service mysql start && \
+    service mysql enable && \
     mysql -e "CREATE USER 'u817406592_admin_masktv'@'localhost' IDENTIFIED BY '7HDL*m5dWi^';" && \ 
     mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'u817406592_admin_masktv'@'localhost' WITH GRANT OPTION;" && \
     mysql -e "CREATE DATABASE u817406592_admin_masktv;" && \
@@ -12,7 +13,7 @@ RUN apt-get update && \
 COPY ./newdb.sql /tmp/newdb.sql  
 
 # Import database file from /tmp to database image
-NOT WORKING THIS CAMMAND : RUN mysql -u u817406592_admin_masktv -p'7HDL*m5dWi^' u817406592_admin_masktv -e "SET FOREIGN_KEY_CHECKS = 0; SOURCE /tmp/newdb.sql; SET FOREIGN_KEY_CHECKS = 1;"
+# RUN mysql -u u817406592_admin_masktv -p'7HDL*m5dWi^' u817406592_admin_masktv -e "SET FOREIGN_KEY_CHECKS = 0; SOURCE /tmp/newdb.sql; SET FOREIGN_KEY_CHECKS = 1;"
 
 # install php 7.4 with plugins
 RUN apt-get update && \
@@ -28,8 +29,7 @@ RUN apt-get update && \
     apt-get install apache2 -y
 COPY ./public_html/* /var/www/html/
 COPY ./admin.conf /etc/apache2/sites-available/admin.conf 
-RUN  a2dissite /etc/apache2/sites-available/000-default.conf && \
-     a2ensite /etc/apache2/sites-available/admin.conf.conf && \
+RUN  ln -s /etc/apache2/sites-available/admin.conf /etc/apache2/sites-enabled/admin.conf
      systemctl reload apache2 
 
 # Allow php user to write to /var/www/html
