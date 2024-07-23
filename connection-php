@@ -1,0 +1,22 @@
+<?php
+
+$host = '172.17.0.3'; // Replace with your MySQL container name or IP address
+$dbname = 'atharv_database'; // Replace with your database name
+$user = 'atharv'; // Replace with your database username
+$password = 'atharv_password'; // Replace with your database password
+$port = '3306'; // Replace with your MySQL port number
+
+try {
+    // Connect to MySQL database using PDO
+    $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $user, $password);
+    
+    // Set PDO to throw exceptions on error
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    // If connection is successful, print success message
+    echo "Connected successfully to database!";
+} catch (PDOException $e) {
+    // If an error occurs during connection, catch it and display error message
+    echo "Connection failed: " . $e->getMessage();
+}
+?>
