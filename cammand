@@ -17,3 +17,41 @@ apt-get update
 13} chown -R www-data:www-data html/     attach phpuser
 14} chmod -R 755 /var/www/html/
 15} a2enmod rewrite
+.....................................................................................................
+
+Set up php mailer on ec2
+# Allow port on ufw
+  21 20 25 587 465
+
+# install & setup postfix on ec2 
+  sudo apt update
+  apt install postfix -y 
+  vim /etc/postfix/main.cf
+
+  # set in main.cf
+    smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
+    myhostname = masktv
+    relayhost = [smtp.gmail.com]:587
+    smtp_sasl_auth_enable = yes
+    smtp_sasl_security_options = noanonymous
+    smtp_sasl_password_maps = hash:/etc/postfix/sasl/sasl_passwd
+    smtp_use_tls = yes
+    smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+
+  # set the password 
+  vim /etc/postfix/sasl/sasl_passwd
+    - [smtp.gmail.com]:587    your-email@gmail.com:your-app-password
+  chmod 600 /etc/postfix/sasl/sasl_passwd
+  postmap /etc/postfix/sasl/sasl_passwd
+  systemctl restart postfix
+
+#set mailx
+  apt install mailutils -y
+
+# set php mailer on ec2
+  curl -sS https://getcomposer.org/installer | php
+  sudo mv composer.phar /usr/local/bin/composer
+  cd /var/www/html/
+  composer require phpmailer/phpmailer
+    - php file move.
+
