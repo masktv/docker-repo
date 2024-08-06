@@ -17,6 +17,8 @@ apt-get update
 13} chown -R www-data:www-data html/     attach phpuser
 14} chmod -R 755 /var/www/html/
 15} a2enmod rewrite
+
+# That deploy the application on ec2 
 .....................................................................................................
 
 Set up php mailer on ec2
