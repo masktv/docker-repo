@@ -61,4 +61,5 @@ Set up php mailer on ec2
   cd /var/www/html/
   composer require phpmailer/phpmailer
     - php file move.
-
+.................................................................................................. 
+grep -r '7HDL\*m5dWi\^' .
