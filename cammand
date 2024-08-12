@@ -21,8 +21,6 @@ apt-get update
 # That deploy the application on ec2 
 .....................................................................................................
 .....................................................................................................
-.....................................................................................................
-.....................................................................................................
 
 # Setting mail server to send mail to partners
 
@@ -61,12 +59,15 @@ Set up php mailer on ec2
   cd /var/www/html/
   composer require phpmailer/phpmailer
     - php file move.
-
+..................................................................................................
 ..................................................................................................
 # How i reduced the file size of application file 
 1) Remove all .tar file from html    (Through cammand line) 
-2) Remove all .zip file from html    (Through cammand line)
+   find . -type f -name '*.tar' -exec rm {} +
 
+2) Remove all .zip file from html    (Through cammand line)
+   find . -type f -name '*.zip' -exec rm {} +
+..................................................................................................
 .................................................................................................. 
 # cammand to grep database name and database username in application file 
 grep -r --exclude="*.log" "u817406592_admin_masktv" .    -------------  --exclude option dont search in log file 
