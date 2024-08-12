@@ -62,4 +62,10 @@ Set up php mailer on ec2
   composer require phpmailer/phpmailer
     - php file move.
 .................................................................................................. 
-grep -r '7HDL\*m5dWi\^' .
+# cammand to grep database name and database username in application file 
+grep -r --exclude="*.log" "u817406592_admin_masktv" .    -------------  --exclude option dont search in log file 
+
+# cammand to replace databasename and database username from u817406592_admin_masktv to admin_masktv 
+find . -type f ! -name "*.log" -exec sed -i 's/u817406592_admin_masktv/admin_masktv/g' {} +     -------------- -name "*.log" option doesnt change in log file
+
+  
