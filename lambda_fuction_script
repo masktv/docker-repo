@@ -1,0 +1,20 @@
+import json
+import urllib.request
+
+def lambda_handler(event, context):
+    jenkins_url = 'http://your-jenkins-url/job/your-job-name/build'
+    request = urllib.request.Request(jenkins_url, method='POST')
+
+    # Add authentication headers if required
+    # request.add_header('Authorization', 'Basic your-base64-encoded-auth-string')
+
+    try:
+        response = urllib.request.urlopen(request)
+        print("Jenkins job triggered successfully.")
+    except Exception as e:
+        print(f"Error triggering Jenkins job: {e}")
+
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Jenkins job triggered')
+    }
