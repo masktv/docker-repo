@@ -1,1 +1,35 @@
 
+To set up Jenkins to trigger a job when changes occur in your AWS S3 bucket, you can use AWS Lambda and Amazon SNS (Simple Notification Service) to create an event-driven architecture. Here's a step-by-step guide to accomplish this:
+
+1.Set Up an S3 Bucket Notification
+    Log in to the AWS Management Console.
+    Navigate to the S3 bucket you want to monitor.
+    Go to the "Properties" tab of your bucket.
+    Scroll down to "Event notifications" and click "Create event notification."
+    Configure the event notification:
+      Name: Provide a name for the notification.
+      Event types: Choose the events you want to monitor (e.g., "All object create events").
+      Send to: Choose "SNS topic."
+      SNS topic: Either select an existing SNS topic or create a new one.
+      Save the changes to your bucket's event notification.
+
+2.Create an SNS Topic
+    Navigate to the Amazon SNS service in the AWS Management Console.
+    Create a new SNS topic:
+      Click "Create topic."
+      Select "Standard" for the type of topic.
+      Name: Provide a name for your topic.
+      Create the topic.
+Copy the ARN (Amazon Resource Name) of the SNS topic. You'll need this later. 
+
+3.Create an AWS Lambda Function
+    1. Navigate to the AWS Lambda service in the AWS Management Console.
+    2. Create a new Lambda function:
+          Click "Create function."
+          Choose "Author from scratch."
+          Name: Provide a name for your function.
+          Runtime: Choose the runtime you prefer (e.g., Python, Node.js).
+          Role: Create a new role with basic Lambda permissions or use an existing role with the necessary permissions.
+
+    3. Configure the function code:
+         Write the Lambda function code to send a notification or invoke a Jenkins API endpoint when an S3 event is received. Here's a sample Python code snippet to call Jenkins:
