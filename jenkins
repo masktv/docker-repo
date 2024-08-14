@@ -42,17 +42,17 @@ Copy the ARN (Amazon Resource Name) of the SNS topic. You'll need this later.
          Add the trigger.
     5. Deploy the Lambda function.
 
-4. Configure Jenkins to Accept Remote Triggers
+4.Configure Jenkins to Accept Remote Triggers
     Open Jenkins and go to the job you want to trigger.
     Go to "Configure" for the job.
     In the "Build Triggers" section, check the "Trigger builds remotely (e.g., from scripts)" option.
     Provide an authentication token (you’ll need this for your Lambda function).
     Save the configuration.
 
-5. Update Lambda Function with Jenkins Authentication
+5.pdate Lambda Function with Jenkins Authentication
     Update the Lambda function code to include the authentication token if your Jenkins instance requires it.
 
-6. Test the Integration
+6.Test the Integration
     Upload a file or make a change to your S3 bucket to generate an event.
     Check the Jenkins job to ensure it was triggered successfully.
 
