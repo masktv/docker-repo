@@ -23,7 +23,7 @@ apt-get update
 .....................................................................................................
 .....................................................................................................
 
-# Install ssl certificate from ssl 
+# Install ssl certificate from lets-encrypt
 1] IN SERVER
     sudo apt update
     sudo apt install certbot
