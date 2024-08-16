@@ -22,6 +22,19 @@ apt-get update
 .....................................................................................................
 .....................................................................................................
 
+# Install ssl certificate from ssl 
+1] IN SERVER
+    sudo apt update
+    sudo apt install certbot
+    systemctl stop apache2
+    sudo certbot certonly --standalone --preferred-challenges http -d example.com     ---- Replace examle.com with our domain an subdomain
+    systemctl start apache2
+2] IN CERTIFICATE MANAGER SERVER 
+    Private.key chain and file.pem     ------- import certificate
+
+.......................................................................................................
+.......................................................................................................
+
 # Setting mail server to send mail to partners
 
 Set up php mailer on ec2
