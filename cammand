@@ -35,7 +35,9 @@ apt-get update
     systemctl start apache2
 
 2] IN CERTIFICATE MANAGER SERVER 
-    
+    Certificate Body :- cert.pem
+    Private Key :- privkey.pem
+    Certificate Chain :- fullchain.pem / chain.pem
 
 .......................................................................................................
 .......................................................................................................
