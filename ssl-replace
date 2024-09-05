@@ -1,0 +1,11 @@
+Chages in Route-53
+  -  Map domain with ELB endpoint 
+  -  ADD origin.masktvott.com subdomain in hosted zone
+Chnage load balancer listner from HTTPS to HTTP
+take ssh acess of server 
+  -  Stop apache2 service
+  -  install certbot and request for new certificate
+Copy Keys from server and import certificate in Noth Verginia regions Certificate Manager Service   
+Create ELB Listner with HTTPS protocol and import new certificate on it
+Map domain with Cloudfront endpoint 
+  -  start apache2 service 
