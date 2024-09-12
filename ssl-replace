@@ -7,5 +7,5 @@ take ssh acess of server
   -  install certbot and request for new certificate
 Copy Keys from server and import certificate in Noth Verginia regions Certificate Manager Service   
 Create ELB Listner with HTTPS protocol and import new certificate on it
-Map domain with Cloudfront endpoint 
+Map domain from elb endpoint to  Cloudfront endpoint 
   -  start apache2 service 
