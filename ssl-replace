@@ -11,7 +11,10 @@
       sudo certbot certonly --standalone --preferred-challenges http -d masktvott.com -d web.masktvott.com -d admin.masktvott.com -d origin.masktvott.com
 
 4) Copy Keys from server and import certificate in North Verginia regions Certificate Manager Service
-   -  
+   -   Certificate Body :- cert.pem
+       Private Key :- privkey.pem
+       Certificate Chain :- fullchain.pem / chain.pem
+
 5) attach new certificate on cloudfront distribution
 6) Create loadbalancer Listner with HTTPS protocol and import new certificate on it
 7) Create HTTP rule in loadbalancer listner and redirect on HTTPS protocol 
