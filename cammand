@@ -95,4 +95,15 @@ grep -r --exclude="*.log" "u817406592_admin_masktv" .    -------------  --exclud
 # cammand to replace databasename and database username from u817406592_admin_masktv to admin_masktv 
 find . -type f ! -name "*.log" -exec sed -i 's/u817406592_admin_masktv/admin_masktv/g' {} +     -------------- -name "*.log" option doesnt change in log file
 
+..................................................................................................
+.................................................................................................. 
+# cammand to install aws cli and docker
+
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    sudo apt install unzip
+    unzip awscliv2.zip
+    sudo ./aws/install
+    aws --version
+
+
   
