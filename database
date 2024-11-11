@@ -1,0 +1,5 @@
+set variable in apache configuration file to acess env
+/etc/apache2/apache2.conf
+  # Set database credentials as environment variables
+    SetEnv DataBaseName "u817406592_admin_masktv"
+    SetEnv AppUserName "u817406592_admin_masktv"
