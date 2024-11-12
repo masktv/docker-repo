@@ -3,3 +3,7 @@ set variable in apache configuration file to acess env
   # Set database credentials as environment variables
     SetEnv DataBaseName "u817406592_admin_masktv"
     SetEnv AppUserName "u817406592_admin_masktv"
+
+set database host with server ip of db 
+  vim admin/app/config/parameters.yml
+  vim admin/app/config/parameters.yml.dist
