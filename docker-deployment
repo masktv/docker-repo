@@ -21,6 +21,7 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 # Specify CMD to start MySQL server
 CMD ["mysqld"]
 
+.................................................................
 
 2. APP Doockerfile
 
