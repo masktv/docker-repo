@@ -1,4 +1,4 @@
-set variable in apache configuration file to acess env
+set variable in apache configuration file to acess env  [to change from one place, change on all place in application code]
 /etc/apache2/apache2.conf
   # Set database credentials as environment variables
     SetEnv DataBaseName "u817406592_admin_masktv"
@@ -6,6 +6,20 @@ set variable in apache configuration file to acess env
     SetEnv DataBaseHost "13.202.191.187"
     SetEnv DataBasePassword "qwert9999"
 
-set database host with server ip of db 
-  vim admin/app/config/parameters.yml
-  vim admin/app/config/parameters.yml.dist
+To connect phpMyAdmin to remote host  [database application server different-different]
+  1. add with database server ip in 
+        cd /etc/phpmyadmin      
+        vim config.inc.php  # edit --> add database server ip at localhost place [line no 61]
+          /* Server parameters */
+           if (empty($dbserver)) $dbserver = '13.202.191.187';     --example
+            $cfg['Servers'][$i]['host'] = $dbserver;
+
+  2. add server ip in cinfig.sample.in.php
+       cd /var/www/html/phpMyAdmin
+       vim config.sample.inc.php  # edit --> add database server ip at localhost place   [line no 30]     
+         $cfg['Servers'][$i]['host'] = '13.202.191.187';    -----example
+ 
+  3. copy cinfig.sample.in.php to config.inc.php [ /var/www/html/phpMyAdmin/ ]
+        cp cinfig.sample.in.php  config.inc.php
+
+  4. restart apache2 service
