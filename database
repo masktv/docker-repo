@@ -4,7 +4,7 @@ set variable in apache configuration file to acess env  [to change from one plac
     SetEnv DataBaseName "u817406592_admin_masktv"
     SetEnv AppUserName "u817406592_admin_masktv"
     SetEnv DataBaseHost "13.202.191.187"
-    SetEnv DataBasePassword "qwert9999"
+    SetEnv DataBasePassword "Qwert9999!"
 
 To connect phpMyAdmin to remote host  [database application server different-different]
   1. add with database server ip in 
