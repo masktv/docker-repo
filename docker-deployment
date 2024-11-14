@@ -5,8 +5,8 @@ FROM mysql:latest
 
 # Environment variables
 ENV MYSQL_ROOT_PASSWORD=Masktv@123
-ENV MYSQL_DATABASE=u817406592_admin_masktv
-ENV MYSQL_USER=u817406592_admin_masktv
+ENV MYSQL_DATABASE=u817406592
+ENV MYSQL_USER=u817406592
 ENV MYSQL_PASSWORD=Qwert9999!
 
 # Copy SQL script to initialize database
