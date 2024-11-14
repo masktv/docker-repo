@@ -115,3 +115,11 @@ setupfor new database server
 4. CREATE USER 'my_user'@'%' IDENTIFIED BY 'my_password';
 5. GRANT ALL PRIVILEGES ON my_database.* TO 'my_user'@'%';
 6  FLUSH PRIVILEGES;
+
+1.    DROP DATABASE u817406592_admin_masktv;
+2.    CREATE DATABASE u817406592_admin_masktv;
+3.    SELECT User, Host FROM mysql.user;
+4.    DROP USER 'u817406592_admin_masktv'@'localhost';
+5.    CREATE USER 'u817406592_admin_masktv'@'%' IDENTIFIED BY '...............';
+5.    GRANT ALL PRIVILEGES ON `u817406592_admin_masktv`.* TO 'u817406592_admin_masktv'@'%' WITH GRANT OPTION;
+6.    FLUSH PRIVILEGES;   
