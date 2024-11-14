@@ -60,9 +60,9 @@ RUN apt-get update \
 RUN a2enmod php7.4 \
     && a2enmod rewrite
 
-ENV DataBaseName="u817406592_admin_masktv"
-ENV AppUserName="u817406592_admin_masktv"
-ENV DataBaseHost="172.17.0.2"
+ENV DataBaseName="u817406592"
+ENV AppUserName="u817406592"
+ENV DataBaseHost="172.17"
 ENV DataBasePassword="Qwert9999!"
 
 RUN echo "SetEnv DataBaseName ${DataBaseName}" >> /etc/apache2/apache2.conf \
