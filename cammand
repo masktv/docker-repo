@@ -7,9 +7,9 @@ apt-get update
 3}  apt-get install mysql-server mysql-client -y
 4}  mysql_secure_installation
 5}  create user 'u817406592_admin_masktv'@'localhost' identified by '7HDL*m5dWi^';
-6}  grant all privileges on *.* to 'u817406592_admin_masktv'@'localhost' with grant option;
+6}  grant all privileges on *.* to 'u817406592'@'localhost' with grant option;
 7}  create database u817406592_admin_masktv;
-8}  mysql -u u817406592_admin_masktv -p u817406592_admin_masktv -e "SET FOREIGN_KEY_CHECKS = 0; source newdb.sql; SET FOREIGN_KEY_CHECKS = 1;"
+8}  mysql -u u817406592 -p u817406592 -e "SET FOREIGN_KEY_CHECKS = 0; source newdb.sql; SET FOREIGN_KEY_CHECKS = 1;"
 9}  apt install phpmyadmin
 10} a2enmod php7.4
 11) systemctl restart apache2
