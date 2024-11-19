@@ -90,10 +90,10 @@ Set up php mailer on ec2
 ..................................................................................................
 .................................................................................................. 
 # cammand to grep database name and database username in application file 
-grep -r --exclude="*.log" "u817406592_admin_masktv" .    -------------  --exclude option dont search in log file 
+grep -r --exclude="*.log" "u817406592" .    -------------  --exclude option dont search in log file 
 
-# cammand to replace databasename and database username from u817406592_admin_masktv to admin_masktv 
-find . -type f ! -name "*.log" -exec sed -i 's/u817406592_admin_masktv/admin_masktv/g' {} +     -------------- -name "*.log" option doesnt change in log file
+# cammand to replace databasename and database username from u817406592 to admin_masktv 
+find . -type f ! -name "*.log" -exec sed -i 's/u817406592/admin_masktv/g' {} +     -------------- -name "*.log" option doesnt change in log file
 
 ..................................................................................................
 .................................................................................................. 
@@ -107,18 +107,19 @@ find . -type f ! -name "*.log" -exec sed -i 's/u817406592_admin_masktv/admin_mas
 
 ..................................................................................................
 
-# if Replace olddatabase with new database in mysql 
+# if Replace old Database with New Database in MYSQL 
 
-1.    DROP DATABASE u817406592_admin_masktv;
-2.    CREATE DATABASE u817406592_admin_masktv;
+1.    DROP DATABASE u817406592;
+2.    CREATE DATABASE u817406592;
 3.    SELECT User, Host FROM mysql.user;
 
-4.    DROP USER 'u817406592_admin_masktv'@'%';
-      DROP USER 'u817406592_admin_masktv'@'localhost';
+4.    DROP USER 'u817406592'@'%';
+      DROP USER 'u817406592'@'localhost';
 
-5.    CREATE USER 'u817406592_admin_masktv'@'%' IDENTIFIED BY '7HDL*m5dWi^';
-5.    GRANT ALL PRIVILEGES ON *.* TO 'u817406592_admin_masktv'@'%' WITH GRANT OPTION;
+5.    CREATE USER 'u817406592'@'%' IDENTIFIED BY '7HDL*m5dWi^';
+5.    GRANT ALL PRIVILEGES ON *.* TO 'u817406592'@'%' WITH GRANT OPTION;
 6.    FLUSH PRIVILEGES;   
 
-mysql -u u817406592 -p u817406592 -e "SET FOREIGN_KEY_CHECKS = 0; source newdb.sql; SET FOREIGN_KEY_CHECKS = 1;"
+7.   insert database in mysql 
+    mysql -u u817406592 -p u817406592 -e "SET FOREIGN_KEY_CHECKS = 0; source newdb.sql; SET FOREIGN_KEY_CHECKS = 1;"
 
