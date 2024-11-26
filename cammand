@@ -123,3 +123,8 @@ find . -type f ! -name "*.log" -exec sed -i 's/u817406592/admin_masktv/g' {} +  
 7.   insert database in mysql 
     mysql -u u817406592 -p u817406592 -e "SET FOREIGN_KEY_CHECKS = 0; source newdb.sql; SET FOREIGN_KEY_CHECKS = 1;"
 
+.....................................................................................................
+
+mv xgwjrzpbyf40_2024-11-23*.csv.gz /mnt/efs
+
+
