@@ -1,3 +1,5 @@
+1.  APPLICATION SERVER :-
+
 set variable in apache configuration file to acess env  [to change from one place, change on all place in application code ------> access database env in application file FROM apache2.conf ]
 /etc/apache2/apache2.conf
   # Set database credentials as environment variables
@@ -23,3 +25,7 @@ To connect phpMyAdmin to remote host  [database application server different-dif
         cp cinfig.sample.in.php  config.inc.php
 
   4. restart apache2 service
+
+2.  DATABASE SERVER :- 
+    TO connect from any host {any application server} perform modification in /etc/mysql/mysql.conf.d file
+      bind-address            = 0.0.0.0    
