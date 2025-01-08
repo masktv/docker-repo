@@ -81,22 +81,7 @@ Set up php mailer on ec2
     - php file move.
 ..................................................................................................
 ..................................................................................................
-# How i reduced the file size of application file 
-1) Remove all .tar file from html    (Through cammand line) 
-   find . -type f -name '*.tar' -exec rm {} +
 
-2) Remove all .zip file from html    (Through cammand line)
-   find . -type f -name '*.zip' -exec rm {} +
-..................................................................................................
-.................................................................................................. 
-# cammand to grep database name and database username in application file 
-grep -r --exclude="*.log" "u817406592" .    -------------  --exclude option dont search in log file 
-
-# cammand to replace databasename and database username from u817406592 to admin_masktv 
-find . -type f ! -name "*.log" -exec sed -i 's/u817406592/admin_masktv/g' {} +     -------------- -name "*.log" option doesnt change in log file
-
-..................................................................................................
-.................................................................................................. 
 # cammand to install aws cli and docker
 
     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -107,7 +92,7 @@ find . -type f ! -name "*.log" -exec sed -i 's/u817406592/admin_masktv/g' {} +  
 
 ..................................................................................................
 
-# if Replace old Database with New Database in MYSQL 
+# if Replace old Database with New Database in MYSQL perform following changes to deploy new db
 
 1.    DROP DATABASE u817406592;
 2.    CREATE DATABASE u817406592;
