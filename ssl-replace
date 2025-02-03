@@ -4,7 +4,7 @@
 
 2) Chnage load balancer listner from HTTPS to HTTP
 
-3) take ssh acess of server 
+3) ssh acess of server 
    -  Stop apache2 service
       systemctl stop apache2
    -  install certbot and request for new certificate
