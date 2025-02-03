@@ -1,6 +1,5 @@
 1) Chages in Route-53
-   -  Map domain with loadbalancer endpoint. 
-   -  ADD origin.masktvott.com subdomain in hosted zone
+   -  Map domain And subdomain with loadbalancer endpoint. 
 
 2) Chnage load balancer listner from HTTPS to HTTP
 
@@ -21,3 +20,9 @@
 8) Map domain from loadbalancer endpoint to  Cloudfront endpoint 
   -  start apache2 service 
      systemctl start apache2
+
+........................
+To Renew ssl certificate.
+1) run cmd 
+   certbot renew
+2) import new certificate through new key and import it on loadbalancer and cdn distribution
