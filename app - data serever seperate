@@ -13,13 +13,13 @@ To connect phpMyAdmin to remote host  [database application server different-dif
         cd /etc/phpmyadmin      
         vim config.inc.php  # edit --> add database server ip at localhost place [line no 61]
           /* Server parameters */
-           if (empty($dbserver)) $dbserver = '13.202.191.187';     --example
+           if (empty($dbserver)) $dbserver = '........';     --example
             $cfg['Servers'][$i]['host'] = $dbserver;
 
   2. add server ip in cinfig.sample.in.php
        cd /var/www/html/phpMyAdmin
        vim config.sample.inc.php  # edit --> add database server ip at localhost place   [line no 30]     
-         $cfg['Servers'][$i]['host'] = '13.202.191.187';    -----example
+         $cfg['Servers'][$i]['host'] = '.......';    -----example
  
   3. copy cinfig.sample.in.php to config.inc.php [ /var/www/html/phpMyAdmin/ ]
         cp cinfig.sample.in.php  config.inc.php
